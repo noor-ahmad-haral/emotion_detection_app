@@ -1,4 +1,5 @@
 import streamlit as st
+import time
 import cv2
 import torch
 import torch.nn as nn
@@ -79,8 +80,8 @@ def real_time_emotion_recognition():
 
         st.image(frame, channels="BGR", use_column_width=True)
 
-        if st.button("Stop 🛑", key="stop_button_recognition"):
-            break
+        if st.button("Stop 🛑", key=f"stop_button_recognition_{time.time()}"):
+           break
 
     st.success("Emotion analysis stopped.")
     cap.release()
